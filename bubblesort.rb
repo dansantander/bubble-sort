@@ -22,7 +22,12 @@ def bubble_sort_by (array)
   swapped = true
   while swapped {
     swapped = false
-    yield
+    0.upto(list.size - 2) do |i|
+      if list[i] > list[i + 1]
+        list[i], list[i + 1] = list[i + 1], list[i] if yield (array[i], array[i-1]).positive?
+        swapped = true
+      end
+    end
   }
   array
 end
